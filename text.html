@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.wrap {width: 100%; height: 100%;}
+.wrap > div {border:1px solid black; display: inline-block; width: 50px; height: 50px; background-color: pink; margin: 10px;}
+.wrap > div > span {display: block; width: 100%; height: 100%;}
+input {font-size: 50px;}
+</style>
+<body>
+<section class="wrap">
+    <div class="a1">1</div>
+    <div class="a2">2</div>
+</section>
+
+<form class="toDoForm">
+    <input type="text" placeholder="write a to do"/>
+    <button type="submit" class="submitBtn">INPUT</button>
+</form>
+<ul class="toDoList"></ul>
+</body>
+<script>
+    // 새로고침,껏다 켜면 다 지워지고 todolist가 다시 그려짐
+const toDoForm = document.querySelector('.toDoForm');
+const toDoInput = toDoForm.querySelector('input');
+const toDoList = document.querySelector('.toDoList');
+const submitBtn = document.querySelector('.submitBtn');
+const wrap = document.querySelector('.wrap');
+let currentDiv;
+let todoList = {}
+
+wrap.addEventListener('click', function(e){
+    if(e.target.tagName !== 'DIV') return;
+    currentDiv = e.target.className;
+    console.log(currentDiv)
+    if (todoList[currentDiv]) {
+        return;
+    } else {
+        todoList[currentDiv] = [];
+    }
+});
+
+submitBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    todoList[currentDiv].push(toDoInput.value);
+    localStorage.setItem(currentDiv, JSON.stringify(todoList[currentDiv]));
+});
+
+
+
+
+
+
+
+
+
+
+// let currentDiv;
+// let inputValue;
+// let aa;
+// for(let i = 0; i < divEl.length; i++){
+//     divEl[i].addEventListener('click', function(e){
+//     console.log(e.target.class)
+//     // if(e.target.tagName !== 'SPAN') return;
+//     currentDiv = e.target.innerHTML;
+//     console.log(currentDiv);
+// });
+// }
+// function k(todoList){
+//     return todoList;
+// }
+
+// submitBtn.addEventListener('click', submitWork);
+// function submitWork(e){
+//     e.preventDefault(); 
+//     var todoList = []; 
+//     inputValue = toDoInput.value;
+//     console.log(localStorage.key(currentDiv))
+//     if(currentDiv === localStorage.key(currentDiv)){
+//         console.log('sss s')
+//         todoList.push(inputValue);
+//     }else {
+//         todoList = [];
+//         todoList.push(inputValue);
+//     }
+//     k(todoList);
+    
+//     toDoInput.value = '';
+//     localStorage.setItem(currentDiv, JSON.stringify(todoList));
+// }
+
+
+</script>
+</html>

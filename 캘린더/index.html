@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <script src="js/ui.js"></script>
+  <title>Vanilla JS TodoList Calendar</title>
+</head>
+<body>
+<div class="main">
+    <div class="content-wrap">
+        <div class="content-left">
+            <div class="main-wrap">
+                <div class="main-day"></div>
+                <div class="main-date"></div>
+            </div>
+            <div class="todo-wrap">
+                <div class="todo-title">Todo List</div>
+                <form class="input-form">
+                    <input type="text" placeholder="write here!!" class="input-box"/>
+                    <button type="submit" class="input-data">INPUT</button>
+                    <ul class="input-list"></ul>
+                </form>
+            </div>
+        </div>
+        <div class="content-right">
+            <table class="calendar">
+                <thead>
+                    <tr class="calendar-title">
+                        <td><label class="prev">&#60;</label></td>
+                        <td align="center" class="current-year-month" colspan="5"></td>
+                        <td><label class="next">&#62;</label></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="sun">Sun</td>
+                        <td align="center">Mon</td>
+                        <td align="center">Tue</td>
+                        <td align="center">Wed</td>
+                        <td align="center">Thu</td>
+                        <td align="center">Fri</td>
+                        <td align="center" class="sat">Sat</td>
+                    </tr>
+                </thead>
+                <tbody class="calendar-body"></tbody>
+            </table>
+            <a href="" class="today">Today</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
